@@ -39,6 +39,13 @@ export class App extends Component {
       name.toLowerCase().includes(filterlowerCase)
     );
   };
+
+  onDeleteContact = contactId => {
+    this.setState(prevstate => ({
+      contacts: prevstate.contacts.filter(({ id }) => id !== contactId),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
 
@@ -53,7 +60,7 @@ export class App extends Component {
         />
         <ContactList
           contacts={this.getFilterContacts()}
-          addNewContact={this.addNewContact}
+          onDeleteContact={this.onDeleteContact}
         />
       </div>
     );
