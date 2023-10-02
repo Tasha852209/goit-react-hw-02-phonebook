@@ -14,6 +14,7 @@ export class App extends Component {
     ],
     filter: '',
   };
+
   addNewContact = data => {
     const { contacts } = this.state;
     const newContact = {
